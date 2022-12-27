@@ -54,7 +54,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({contacts: JSON.parse(localStorage.getItem('contacts'))})
+    const contactsInLocaleStorage = JSON.parse(localStorage.getItem('contacts'))
+    if (contactsInLocaleStorage) {
+      this.setState({contacts: contactsInLocaleStorage})
+    }
   }
 
 
