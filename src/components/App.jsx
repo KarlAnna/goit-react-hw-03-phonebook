@@ -63,15 +63,16 @@ class App extends Component {
 
   render() {
     const { contacts, filter } = this.state
+    const {onSubmit, changeFilter, getVisibleContacts, deleteContact} = this
 
     return (
       <div className='container'>
         <h1>Phonebook</h1>
-        <ContactForm onSubmit={this.onSubmit} />
+        <ContactForm onSubmit={onSubmit} />
 
         <h2>Contacts</h2>
-        <Filter filter={filter} onChange={this.changeFilter} />
-        {contacts.length > 0 && <ContactList contacts={this.getVisibleContacts()} onDelete={this.deleteContact} />}
+        <Filter filter={filter} onChange={changeFilter} />
+        {contacts.length > 0 && <ContactList contacts={getVisibleContacts()} onDelete={deleteContact} />}
       </div>
     )
   }
